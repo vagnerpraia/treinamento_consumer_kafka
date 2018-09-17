@@ -1,2 +1,2 @@
-# Treinamento de Apache Kafka
+# Treinamento de Consumer para Apache Kafka
 
