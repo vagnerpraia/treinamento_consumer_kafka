@@ -17,7 +17,7 @@ public class Consumer {
         String autoOffsetReset = "earliest";
         List<String> topics = Arrays.asList("teste");
 
-        final Runnable consumerRunnable = new ConsumerRunnable(latch, bootstrapServers, groupId, autoOffsetReset, topics) (latch, bootstrapServers, groupId, autoOffsetReset, topics);
+        final Runnable consumerRunnable = new ConsumerRunnable(latch, bootstrapServers, groupId, autoOffsetReset, topics);
 
         Thread consumer = new Thread(consumerRunnable);
         consumer.start();
