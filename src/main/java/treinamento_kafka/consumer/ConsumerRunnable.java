@@ -17,8 +17,9 @@ import org.slf4j.LoggerFactory;
 
 public class ConsumerRunnable implements Runnable {
     final Logger logger = LoggerFactory.getLogger(ConsumerRunnable.class.getName());
+
     private CountDownLatch latch;
-    KafkaConsumer<String, String> consumer;
+    private KafkaConsumer<String, String> consumer;
 
     public ConsumerRunnable(CountDownLatch latch, String bootstrapServers, String groupId, String autoOffsetReset, List<String> topics){
         this.latch = latch;

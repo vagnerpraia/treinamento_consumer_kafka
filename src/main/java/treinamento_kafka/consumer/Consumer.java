@@ -9,9 +9,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Consumer {
-    public static void main(String[] args){
-        final Logger logger = LoggerFactory.getLogger(Consumer.class.getName());
+    final Logger logger = LoggerFactory.getLogger(Consumer.class.getName());
 
+    public static void main(String[] args){
         Integer threadCount = ManagementFactory.getThreadMXBean().getThreadCount();
 
         CountDownLatch latch = new CountDownLatch(threadCount);
