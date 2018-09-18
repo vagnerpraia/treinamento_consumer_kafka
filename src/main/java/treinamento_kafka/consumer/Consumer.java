@@ -1,6 +1,8 @@
 package treinamento_kafka.consumer;
 
 import java.lang.Runnable;
+import java.lang.management.ManagementFactory;
+import java.lang.management.ThreadMXBean;
 import java.util.Arrays;
 import java.util.concurrent.CountDownLatch;
 import java.util.List;
@@ -11,7 +13,13 @@ public class Consumer {
     public static void main(String[] args){
         final Logger logger = LoggerFactory.getLogger(Consumer.class.getName());
 
-        CountDownLatch latch = new CountDownLatch(2);
+        // Get the managed bean for the thread system of the Java virtual machine.
+        ThreadMXBean bean = ManagementFactory.getThreadMXBean();
+
+        // Get the current number of live threads including both daemon and non-daemon threads.
+        Integer threadCount = bean.getThreadCount();
+
+        CountDownLatch latch = new CountDownLatch(threadCount);
         String bootstrapServers = "127.0.0.1:9092";
         String groupId = "teste_consumer";
         String autoOffsetReset = "earliest";
