@@ -2,7 +2,6 @@ package treinamento_kafka.consumer;
 
 import java.lang.Runnable;
 import java.lang.management.ManagementFactory;
-import java.lang.management.ThreadMXBean;
 import java.util.Arrays;
 import java.util.concurrent.CountDownLatch;
 import java.util.List;
@@ -13,11 +12,7 @@ public class Consumer {
     public static void main(String[] args){
         final Logger logger = LoggerFactory.getLogger(Consumer.class.getName());
 
-        // Get the managed bean for the thread system of the Java virtual machine.
-        ThreadMXBean bean = ManagementFactory.getThreadMXBean();
-
-        // Get the current number of live threads including both daemon and non-daemon threads.
-        Integer threadCount = bean.getThreadCount();
+        Integer threadCount = ManagementFactory.getThreadMXBean().getThreadCount();
 
         CountDownLatch latch = new CountDownLatch(threadCount);
         String bootstrapServers = "127.0.0.1:9092";
@@ -31,7 +26,7 @@ public class Consumer {
         consumer.start();
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            logger.info("Caught shutdown hook");
+            logger.info("Aplicação encerrada.");
             ((ConsumerRunnable) consumerRunnable).shutdown();
         }));
 
@@ -40,7 +35,7 @@ public class Consumer {
         }catch(InterruptedException e){
             logger.error("Aplicação foi enterrompida.", e);
         }finally{
-            logger.info("Close");
+            logger.info("Aplicação encerrada.");
         }
     }
 }

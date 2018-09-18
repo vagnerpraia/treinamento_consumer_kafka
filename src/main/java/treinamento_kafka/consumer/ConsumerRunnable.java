@@ -50,7 +50,7 @@ public class ConsumerRunnable implements Runnable {
                 }
             }
         }catch(WakeupException e){
-            logger.info("Shutdown");
+            logger.info("Consumer desligado.");
             shutdown();
         }finally{
             consumer.close();
