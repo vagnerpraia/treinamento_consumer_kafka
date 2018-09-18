@@ -1,4 +1,4 @@
-package treinamento.kafka;
+package treinamento_kafka.consumer;
 
 import java.lang.Runnable;
 import java.util.Arrays;
