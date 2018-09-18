@@ -1,7 +1,7 @@
 package treinamento_kafka.consumer;
 
-import java.lang.Runnable;
 import java.lang.management.ManagementFactory;
+import java.lang.Runnable;
 import java.util.Arrays;
 import java.util.concurrent.CountDownLatch;
 import java.util.List;
