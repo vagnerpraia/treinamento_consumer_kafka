@@ -12,6 +12,10 @@ public class Consumer {
     final Logger logger = LoggerFactory.getLogger(Consumer.class.getName());
 
     public static void main(String[] args){
+        new Consumer().execute();
+    }
+
+    public void execute(){
         Integer threadCount = ManagementFactory.getThreadMXBean().getThreadCount();
 
         CountDownLatch latch = new CountDownLatch(threadCount);
