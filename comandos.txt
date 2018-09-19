@@ -5,7 +5,7 @@ KAFKA SERVER START
 /home/vp/kafka/bin/kafka-server-start.sh /home/vp/kafka/config/server.properties
 
 COMSUMER TESTE
-/home/vp/kafka/bin/kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic siconv --group test
+/home/vp/kafka/bin/kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic teste --group teste
 
 GERAR JAR
 mvn package
